@@ -1,18 +1,41 @@
-extends ../layout
+doctype html
+html(lang='')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title #{title} - Hackathon Starter
+    meta(name='description', content='')
+    meta(name='theme-color' content='#4DA5F4')
+    meta(name='csrf-token', content=_csrf)
+    link(rel='shortcut icon', href='/images/favicon.png')
+    link(rel='stylesheet', href='/css/main.css')
 
-block content
-  .col-sm-8.offset-sm-2
-    form(method='POST')
-      legend Reset Password
-      hr
-      input(type='hidden', name='_csrf', value=_csrf)
-      .form-group
-        label.col-form-label.font-weight-bold(for='password') New Password
-        input.form-control(type='password', name='password', id='password', placeholder='New password', autofocus, required)
-      .form-group
-        label.col-form-label.font-weight-bold(for='confirm') Confirm Password
-        input.form-control(type='password', name='confirm', id='confirm', placeholder='Confirm password', required)
-      .form-group
-        button.btn.btn-primary.btn-reset(type='submit')
-          i.fa.fa-keyboard-o
-          | Change Password
+  body
+
+    include ../partials/flash
+
+    .col-sm-8.offset-sm-2
+      form(method='POST')
+        legend Reset Password
+        hr
+        input(type='hidden', name='_csrf', value=_csrf)
+        .form-group
+          label.col-form-label.font-weight-bold(for='password') New Password
+          input.form-control(type='password', name='password', id='password', placeholder='New password', autofocus, required)
+        .form-group
+          label.col-form-label.font-weight-bold(for='confirm') Confirm Password
+          input.form-control(type='password', name='confirm', id='confirm', placeholder='Confirm password', required)
+        .form-group
+          button.btn.btn-primary.btn-reset(type='submit')
+            i.fa.fa-keyboard-o
+            | Change Password
+
+    script(src='/js/lib/jquery-3.1.1.min.js')
+    script(src='/js/lib/bootstrap.min.js')
+
+    //- Google Analytics: change UA-38177297-2 to be your site's ID
+    //script.
+    //    window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+    //    ga('create','UA-38177297-2','auto');ga('send','pageview')
+    //script(src='https://www.google-analytics.com/analytics.js' async defer)
