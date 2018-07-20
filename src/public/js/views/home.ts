@@ -1,5 +1,3 @@
-export class Home {
-
-    constructor() {
-    }
-}
+$(document).ready(function() {
+    // Place JavaScript code here...
+});

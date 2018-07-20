@@ -1,5 +1,19 @@
-nav.navbar.navbar-expand-lg.navbar-light.bg-light
-    .container-fluid
-        button#sidebarCollapse.btn.btn-info(type="button")
-            i.fa.fa-align-left
-            span Toggle Sidebar
+nav#header.navbar.navbar-expand-md.navbar-light.bg-info.fixed-top.offset-md-2
+    a.navbar-brand(href="#") #{title}
+    button.navbar-toggler(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+        span.navbar-toggler-icon
+
+    .collapse.navbar-collapse
+        ul.navbar-nav.ml-auto.d-none.d-md-block
+            li.nav-item.dropdown
+                a.nav-link.dropdown-toggle(href='#', data-toggle='dropdown')
+                    span= user.profile.name || user.email || user.id
+                    i.caret
+                ul.dropdown-menu
+                    li.nav-item
+                        a.nav-link(href='/logout') Logout
+        ul.navbar-nav.ml-auto.d-md-none
+            include menu
+            .dropdown-divider
+            li.nav-item
+                a.nav-link(href='/logout') Logout
